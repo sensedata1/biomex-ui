@@ -1,0 +1,90 @@
+buildscript {
+  ext {
+    dockerVersion = '3.2.5'
+  }
+
+  repositories {
+    mavenCentral()
+    jcenter()
+  }
+
+  dependencies {
+    // Needed for 'docker' plugin
+    classpath "com.bmuschko:gradle-docker-plugin:${dockerVersion}"
+  }
+}
+
+plugins {
+  id "com.moowork.node" version "1.2.0"
+}
+
+node {
+  version = '6.11.5'
+  npmVersion = '3.10.10'
+  download = true
+  workDir = file("${project.buildDir}/node")
+  nodeModulesDir = file("${project.projectDir}")
+}
+
+apply plugin: 'com.bmuschko.docker-remote-api'
+
+import com.bmuschko.gradle.docker.tasks.image.Dockerfile
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+
+tasks.withType(JavaForkOptions) {
+    jvmArgs("-XX:+UseCompressedOops")
+    jvmArgs("-Djava.awt.headless=true")
+    jvmArgs("-Dapple.awt.UIElement=true")
+
+}
+
+task npmClean(type: Delete) {
+  delete "${rootDir}/node"
+  delete "${rootDir}/node_modules"
+  delete "${rootDir}/dist"
+  delete "${rootDir}/coverage"
+}
+
+task distClean(type: Delete) {
+  final def rootDir = "${rootDir}"
+  delete "${rootDir}/dist"
+  delete "${rootDir}/coverage"
+  delete "${rootDir}/build"
+}
+
+task clean(dependsOn: 'distClean') {
+  delete "${rootDir}/Dockerfile"
+}
+
+task jar(type: Jar, overwrite: true) {
+  from(fileTree("dist")) {
+    into "META-INF/resources/webjars/biomex-ui/0.0.1"
+  }
+}
+jar.dependsOn(npm_install)
+jar.dependsOn(npm_run_build)
+
+task build(type: NpmTask) {
+  args = ['run', 'build']
+}
+
+build.dependsOn(npm_install)
+
+task runAll{}
+runAll.dependsOn(npm_run_start)
+
+task createDockerfile(type: Dockerfile) {
+  destFile = project.file('Dockerfile')
+  from 'nginx:alpine'
+  addFile('/root', '/')
+  workingDir '/usr/share/nginx/html'
+  addFile('dist/.', '/usr/share/nginx/html')
+  exposePort 8080
+}
+
+task buildDocker(type: DockerBuildImage, dependsOn:[createDockerfile, build]) {
+  inputDir = createDockerfile.destFile.parentFile
+  noCache = true
+  tag = 'localhost/biomex-ui:local'
+  //certPath = new File("/home/${System.env.USER}/.minikube/certs")
+}

@@ -1,0 +1,75 @@
+<div class="navigation" [ngClass]="{'opened':menuOpen}">
+  <ul>
+    <li class="nav-item">
+      <a routerLink="/home">
+        <i class="fa fa-home" aria-hidden="true"></i>
+        <span>Home</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/dashboard">
+        <i class="fa fa-desktop" aria-hidden="true"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+        <span>Favourites</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/admin">
+        <i class="fa fa-cog" aria-hidden="true"></i>
+        <span>Admin</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/settings">
+        <i class="fa fa-cog" aria-hidden="true"></i>
+        <span>Settings</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div class="grid" [ngClass]="{'opened':menuOpen}">
+  <div class="block header">
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" (click)="menuOpen=!menuOpen">
+        <img src="{{menuOpen ? '/assets/images/logo/badge-w.svg':'/assets/images/logo/badge.svg'}}" width="30" height="30" class="logoBadge" alt="BiOMEX" />
+        <img src="{{menuOpen ? '/assets/images/logo/text-w.svg':'/assets/images/logo/text.svg'}}" height="20" class="biomexText" alt="BiOMEX" />
+      </a>
+      <button class="btn btn-light closeMenu" (click)="menuOpen=!menuOpen" type="button">
+        <img src="/assets/images/icons/close.svg" class="closeIcon" />
+      </button>
+      <div class="btn-group topNav" role="group" aria-label="Top menu">
+        <button class="btn btn-light" type="button" (click)="searchOpen = !searchOpen">
+          <i class="fa fa-search"></i>
+        </button>
+
+        <button class="btn btn-light" type="button">
+          <i class="fa fa-user-circle"></i>
+        </button>
+      </div>
+    </nav>
+  </div>
+  <div class="block search" [ngClass]="{'opened':searchOpen}" *ngIf="searchOpen">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary" routerLink="/search-results">GO</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="block main">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="block footer">
+    <p><a href="http://www.biomex.io/" title="BiOMEX Website">BiOMEX</a> &copy; 2017 - 2018</p>
+  </div>
+</div>

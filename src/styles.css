@@ -1,0 +1,61 @@
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import '../node_modules/font-awesome/css/font-awesome.css';
+@import '../node_modules/primeng/resources/themes/bootstrap/theme.css';
+@import '../node_modules/primeng/resources/primeng.min.css';
+html,body,.grid {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+body {
+    /* Without this, the body has excess horizontal scroll when the menu is open */
+  overflow-x: hidden;
+}
+
+td.col-button {
+  text-align: center !important;
+}
+
+.ui-button-icon-only {
+  width: 2em;
+  height: 2em;
+}
+
+.ui-growl-item-container {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+body .ui-corner-all {
+  border-radius: 0;
+}
+
+body .ui-tabview.ui-tabview-top .ui-tabview-nav li {
+  border-radius: 0;
+}
+
+body .ui-inputgroup .ui-inputgroup-addon:first-child {
+  border-radius: 0;
+}
+
+.list-group-item {
+  padding: 0.55rem 0rem;
+  border: 0px solid rgba(0,0,0,.125);
+}
+
+.list-group-item label {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+
+body  .ui-panel.assetList .ui-panel-content {
+  padding:0;
+}
+
+
+body  .ui-panel .ui-panel-content h2 {
+  font-size: 1.5rem;
+}

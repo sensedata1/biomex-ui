@@ -1,0 +1,26 @@
+<p-growl [value]="msgs" [sticky]="false"></p-growl>
+<div class="jumbotron">
+  <h1 class="display-3">Settings</h1>
+  <hr class="my-4">
+
+  <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2">
+        * API Address:
+      </div>
+      <div class="ui-grid-col-6">
+        <input pInputText type="text" [(ngModel)]="ApiAddress" placeholder="API Address" />
+      </div>
+    </div>
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-2"></div>
+      <div class="ui-grid-col-6">
+        <button pButton type="submit" (click)="updateInput()" label="Submit"></button>
+      </div>
+      <div class="ui-grid-col-4"></div>
+    </div>
+</div>
+
+
+
+</div>

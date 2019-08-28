@@ -1,0 +1,30 @@
+apiVersion: skaffold/v1beta2
+kind: Config
+build:
+  artifacts:
+  - image: biomex-ui
+    context: .
+    docker: {}
+  tagPolicy:
+    envTemplate:
+      template: '{{.DOCKER_REGISTRY}}/sbadakhc/biomex-ui:{{.VERSION}}'
+  local: {}
+deploy:
+  kubectl: {}
+profiles:
+- name: dev
+  build:
+    artifacts:
+    - docker: {}
+    tagPolicy:
+      envTemplate:
+        template: '{{.DOCKER_REGISTRY}}/sbadakhc/biomex-ui:{{.DIGEST_HEX}}'
+    local: {}
+  deploy:
+    helm:
+      releases:
+      - name: biomex-ui
+        chartPath: charts/biomex-ui
+        setValueTemplates:
+          image.repository: '{{.DOCKER_REGISTRY}}/sbadakhc/biomex-ui'
+          image.tag: '{{.DIGEST_HEX}}'

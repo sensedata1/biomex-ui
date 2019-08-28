@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg1247"
+   version="1.1"
+   viewBox="0 0 28.020754 55.531456"
+   height="55.531456mm"
+   width="28.020754mm"
+   sodipodi:docname="badge-w.svg"
+   inkscape:version="0.92.2 (unknown)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2204"
+     inkscape:window-height="799"
+     id="namedview9"
+     showgrid="false"
+     inkscape:zoom="1.1244378"
+     inkscape:cx="-57.324728"
+     inkscape:cy="104.94133"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g4590-9" />
+  <defs
+     id="defs1241" />
+  <metadata
+     id="metadata1244">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-3.3495665,-191.74915)"
+     id="layer1">
+    <g
+       transform="matrix(2.812142,0,0,2.812142,-1650.4465,506.07965)"
+       id="g4590-9"
+       style="display:inline">
+      <path
+         id="polygon8-9-3"
+         d="m 588.35582,-93.061476 4.84981,-8.839734 -4.84981,-8.84238 z"
+         style="fill:none;stroke:#ffffff;stroke-width:0.52916664px;stroke-miterlimit:10;stroke-opacity:1" />
+      <path
+         id="polygon10-3-9"
+         d="m 598.05544,-110.74359 -4.84981,8.84238 4.84981,8.839734 z"
+         style="fill:#fdfeff;stroke-width:0.26458332;fill-opacity:1" />
+    </g>
+  </g>
+</svg>

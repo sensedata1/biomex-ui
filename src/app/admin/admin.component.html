@@ -1,0 +1,131 @@
+<p-panel header="Admin">
+  <p-growl [value]="msgs" [sticky]="false"></p-growl>
+  <form [formGroup]="assetform" >
+    <p-panel header="Add Asset">
+      <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2">
+            * Name:
+          </div>
+          <div class="ui-grid-col-6">
+            <input pInputText type="text" formControlName="name" placeholder="Name" />
+          </div>
+          <div class="ui-grid-col-4">
+            <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!assetform.controls['name'].valid&&assetform.controls['name'].dirty">
+              <i class="fa fa-close"></i>
+              Name is required
+            </div>
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2">
+            Description:
+          </div>
+          <div class="ui-grid-col-6">
+            <textarea pInputTextarea type="text" formControlName="description"></textarea>
+          </div>
+          <div class="ui-grid-col-4">
+            <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!assetform.controls['description'].valid&&assetform.controls['description'].dirty">
+              <i class="fa fa-close"></i>
+              Description is required
+            </div>
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2">
+            * Contract ID:
+          </div>
+          <div class="ui-grid-col-6">
+            <input pInputText type="number" formControlName="contract_id" placeholder="Contract ID" />
+          </div>
+          <div class="ui-grid-col-4">
+            <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!assetform.controls['contract_id'].valid&&assetform.controls['contract_id'].dirty">
+              <i class="fa fa-close"></i>
+              Contract ID is required
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2">
+            * Participant ID:
+          </div>
+          <div class="ui-grid-col-6">
+            <input pInputText type="number" formControlName="participant_id" placeholder="Participant ID" />
+          </div>
+          <div class="ui-grid-col-4">
+            <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!assetform.controls['participant_id'].valid&&assetform.controls['participant_id'].dirty">
+              <i class="fa fa-close"></i>
+              Participant ID is required
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2">
+            * Version:
+          </div>
+          <div class="ui-grid-col-6">
+            <input pInputText type="text" formControlName="version" placeholder="Version" />
+          </div>
+          <div class="ui-grid-col-4">
+            <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!assetform.controls['version'].valid&&assetform.controls['version'].dirty">
+              <i class="fa fa-close"></i>
+              Version is required
+            </div>
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2">
+            Biomex endpoint:
+          </div>
+          <div class="ui-grid-col-6">
+            <input pInputText type="text" formControlName="biomex_endpoint" placeholder="Biomex endpoint" />
+          </div>
+          <div class="ui-grid-col-4">
+            <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!assetform.controls['biomex_endpoint'].valid&&assetform.controls['biomex_endpoint'].dirty">
+              <i class="fa fa-close"></i>
+              Biomex endpoint is required
+            </div>
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2">
+            Off premise endpoint:
+          </div>
+          <div class="ui-grid-col-6">
+            <input pInputText type="text" formControlName="off_premise_endpoint" placeholder="Off premise endpoint" />
+          </div>
+          <div class="ui-grid-col-4">
+            <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!assetform.controls['off_premise_endpoint'].valid&&assetform.controls['off_premise_endpoint'].dirty">
+              <i class="fa fa-close"></i>
+              Off premise endpoint is required
+            </div>
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2">
+            Keywords:
+          </div>
+          <div class="ui-grid-col-6">
+            <input pInputText type="text" formControlName="keywords" placeholder="Keywords" />
+          </div>
+          <div class="ui-grid-col-4">
+            <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!assetform.controls['keywords'].valid&&assetform.controls['keywords'].dirty">
+              <i class="fa fa-close"></i>
+              Keywords is required
+            </div>
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-2"></div>
+          <div class="ui-grid-col-6">
+            <button pButton type="submit" (click)="onSubmit(assetform.value)" label="Submit" [disabled]="!assetform.valid"></button>
+          </div>
+          <div class="ui-grid-col-4"></div>
+        </div>
+      </div>
+    </p-panel>
+  </form>
+
+</p-panel>
